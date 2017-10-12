@@ -3,7 +3,8 @@ import os
 import re
 import sys
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys_path = os.environ['PATH']
+print(sys_path)
 
 from scrape import app
 
