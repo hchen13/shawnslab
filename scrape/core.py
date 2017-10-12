@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from settings import *
+from scrape.settings import *
 
 
 def extract_data():
