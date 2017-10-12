@@ -1,4 +1,2 @@
-import os
-
 URL_XUEQIU = 'https://xueqiu.com'
-URL_SHAWN_COMBO = os.path.join(URL_XUEQIU, 'P/ZH946285')
+URL_SHAWN_COMBO = "https://xueqiu.com/P/ZH946285"
