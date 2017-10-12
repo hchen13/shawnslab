@@ -17,7 +17,8 @@ def is_every_n_minutes(n_minutes):
 		return False
 	return check
 
-if __name__ == '__main__':
+
+def main():
 	try:
 		Session = core.init_db()
 	except OperationalError as e:
@@ -37,3 +38,19 @@ if __name__ == '__main__':
 
 		sys.stdout.flush()
 		sleep(30)
+
+
+def run_once():
+	try:
+		Session = core.init_db()
+	except OperationalError as e:
+		print("数据库初始化失败: {}".format(e))
+		print("程序即将终止")
+		exit()
+
+	nv = core.extract_data()
+	core.save(nv, Session)
+
+
+if __name__ == '__main__':
+	main()
