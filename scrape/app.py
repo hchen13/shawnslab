@@ -1,6 +1,9 @@
+import os
 import sys
 from datetime import datetime
 from time import sleep
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 import scrape.core as core
 from sqlalchemy.exc import OperationalError
