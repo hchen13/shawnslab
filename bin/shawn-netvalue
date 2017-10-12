@@ -1,10 +1,12 @@
-#!/usr/bin/python3.6
+#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
+
 import os
 import re
 import sys
 
-sys_path = os.environ['PATH']
-print(sys_path)
+sys_path = os.environ['PATH'].split(":")
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.extend(sys_path)
 
 from scrape import app
 
