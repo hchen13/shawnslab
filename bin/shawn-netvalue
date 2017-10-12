@@ -4,6 +4,7 @@ import re
 import sys
 
 sys.path.append('/root/shawnslab')
+sys.path.append('/root/shawnslab/scrape')
 
 from scrape import app
 
