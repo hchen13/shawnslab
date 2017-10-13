@@ -47,7 +47,6 @@ class NetValue(Base):
 		return "{} 净值: {}".format(self.date, self.value)
 
 def init_db():
-	print(DB_HOST)
 	print("正在初始化数据库...")
 	url = '{dialect}+{driver}://{username}:{password}@{host}/{db}?charset=utf8'.format(
 		dialect='mysql', driver='mysqldb',
