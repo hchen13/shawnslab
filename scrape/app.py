@@ -56,4 +56,4 @@ def run_once():
 
 
 if __name__ == '__main__':
-	main()
+	run_once()

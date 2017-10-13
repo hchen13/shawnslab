@@ -22,9 +22,14 @@ def extract_data():
 	response = requests.get(URL_SHAWN_COMBO, headers=headers)
 	content = response.content
 	page = BeautifulSoup(content, "lxml")
-	elem = page.select("#cube-info > div.cube-blockmain > div > div.cube-profits.fn-clear > div:nth-of-type(3) > div.per")[0]
-	print("提取完成, 此时净值为{}\n".format(elem.text))
-	return float(elem.text)
+	try:
+		elem = page.select("#cube-info > div.cube-blockmain > div > div.cube-profits.fn-clear > div:nth-of-type(3) > div.per")[0]
+		value = elem.text
+		print("提取完成, 此时净值为{}\n".format(value))
+	except IndexError as e:
+		print("净值元素在页面中不存在, 跳过...\n")
+		value = None
+	return float(value) if value else None
 
 
 Base = declarative_base()
@@ -42,6 +47,7 @@ class NetValue(Base):
 		return "{} 净值: {}".format(self.date, self.value)
 
 def init_db():
+	print(DB_HOST)
 	print("正在初始化数据库...")
 	url = '{dialect}+{driver}://{username}:{password}@{host}/{db}?charset=utf8'.format(
 		dialect='mysql', driver='mysqldb',
