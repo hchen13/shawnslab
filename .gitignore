@@ -1,2 +1,3 @@
 .idea/
 scrape/__pycache__/*
+.ropeproject
