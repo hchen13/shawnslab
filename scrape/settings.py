@@ -2,6 +2,7 @@ import os
 
 URL_XUEQIU = 'https://xueqiu.com'
 URL_SHAWN_COMBO = "https://xueqiu.com/P/ZH946285"
+URL_ALL = "https://xueqiu.com/cubes/nav_daily/all.json?cube_symbol=ZH946285"
 
 try:
 	DB_USER = os.environ['SHAWN_DB_USER']

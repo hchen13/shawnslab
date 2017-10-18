@@ -1,13 +1,13 @@
-import os
+# import os
 import sys
 from datetime import datetime
 from time import sleep
 
 from sqlalchemy.exc import OperationalError
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-import scrape.core as core
+import core
 
 
 def is_every_n_minutes(n_minutes):
@@ -41,7 +41,7 @@ def main():
         if frequency(current):
             nv = core.extract_data()
             if nv is not None:
-                core.save(nv, Session)
+                core.save(Session, nv)
 
         sys.stdout.flush()
         sleep(30)
@@ -56,8 +56,24 @@ def run_once():
         exit()
 
     nv = core.extract_data()
-    core.save(nv, Session)
+    core.save(Session, nv)
+
+
+def scan():
+    try:
+        Session = core.init_db()
+    except OperationalError as e:
+        print("数据库初始化失败: {}".format(e))
+        print("程序即将终止")
+        exit()
+
+    data = core.scan()
+    for i in data:
+        value, date_str = i['value'], i['date']
+        date = datetime.strptime(date_str, '%Y-%m-%d').date()
+        core.save(Session, value, date)
 
 
 if __name__ == '__main__':
-    run_once()
+    scan()
+    # run_once()
