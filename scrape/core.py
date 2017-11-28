@@ -110,12 +110,6 @@ def save(Session, x, date=None):
     print('储存成功!\n')
 
 
-def raw_save(val, date, Session):
-    print("正在储存数据...")
-    session = Session()
-
-
-
 if __name__ == '__main__':
     Session = init_db()
     a = extract_data()

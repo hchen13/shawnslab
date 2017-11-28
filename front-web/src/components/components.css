@@ -1,0 +1,40 @@
+.logo {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+}
+.hero {
+    margin-top: 20px;
+    background-color: #49a9ee;
+    padding: 20px 50px;
+    color: #fff;
+}
+.hero label {
+    display: block;
+    margin-top: 16px;
+}
+.hero .hero-text {
+    display: inline-block;
+}
+.hero .hero-text.lg {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: .9;
+}
+.hero .hero-text.md {
+    font-size: 16px;
+    font-weight: 400;
+}
+.hero .hero-text.sm {
+    font-size: 12px;
+    font-weight: 200;
+}
+.calendar-view .net-value {
+    font-size: 9px;
+    color: #49a9ee;
+}
+.calendar-view {
+    border: 1px solid #eee;
+    background-color: #fff;
+    padding: 20px;
+}
